@@ -1,35 +1,41 @@
 <template>
   <v-container>
-    <v-layout
-      text-center
-      wrap
-    >
-    {{test}}
-    <v-form v-model="valid">
-    <v-container>
-      <v-row>
-        <v-col>
-          <v-text-field
-            v-model="title"
-            :rules="title"
-            :counter="10"
-            label="Title"
-            required
-          ></v-text-field>
-        </v-col>
+    <v-layout text-center wrap>
+      <v-form v-model="valid">
+        <v-container>
+          <v-row>
 
-        <v-col>
-          <v-text-field
-            v-model="content"
-            :rules="content"
-            :counter="10"
-            label="Content"
-            required
-          ></v-text-field>
-        </v-col>
-      </v-row>
-    </v-container>
-  </v-form>
+            <v-col cols="12" md="4">
+              <v-text-field
+                v-model="title"
+                label="Title"
+                required
+              ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" md="4">
+              <v-text-field
+                v-model="content"
+                label="Content"
+                required
+              ></v-text-field>
+            </v-col>
+
+            <v-col cols="12" md="4">
+              <v-btn v-on:click="addTodo">Add</v-btn>
+            </v-col>
+
+            <v-col cols="12" md="4">
+              <ol>
+                  <li>
+                    {{todoList}}
+                  </li>
+                </ol>
+            </v-col>
+
+          </v-row>
+        </v-container>
+      </v-form>
     </v-layout>
   </v-container>
 </template>
@@ -37,56 +43,19 @@
 <script>
 export default {
   data: () => ({
-    ecosystem: [
-      {
-        text: 'vuetify-loader',
-        href: 'https://github.com/vuetifyjs/vuetify-loader'
-      },
-      {
-        text: 'github',
-        href: 'https://github.com/vuetifyjs/vuetify'
-      },
-      {
-        text: 'awesome-vuetify',
-        href: 'https://github.com/vuetifyjs/awesome-vuetify'
-      }
-    ],
-    importantLinks: [
-      {
-        text: 'Documentation',
-        href: 'https://vuetifyjs.com'
-      },
-      {
-        text: 'Chat',
-        href: 'https://community.vuetifyjs.com'
-      },
-      {
-        text: 'Made with Vuetify',
-        href: 'https://madewithvuejs.com/vuetify'
-      },
-      {
-        text: 'Twitter',
-        href: 'https://twitter.com/vuetifyjs'
-      },
-      {
-        text: 'Articles',
-        href: 'https://medium.com/vuetify'
-      }
-    ],
-    whatsNext: [
-      {
-        text: 'Explore components',
-        href: 'https://vuetifyjs.com/components/api-explorer'
-      },
-      {
-        text: 'Select a layout',
-        href: 'https://vuetifyjs.com/layout/pre-defined'
-      },
-      {
-        text: 'Frequently Asked Questions',
-        href: 'https://vuetifyjs.com/getting-started/frequently-asked-questions'
-      }
-    ]
-  })
+    valid: false,
+    title: '',
+    content: '',
+    todoList: []
+  }),
+  methods: {
+    addTodo () {
+      this.todoList.push({
+        title: this.title,
+        content: this.content
+      })
+      console.log(JSON.stringify(this.todoList))
+    }
+  }
 }
 </script>

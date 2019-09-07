@@ -2,16 +2,14 @@
   <v-app>
     <v-app-bar app>
       <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
+        <span>TP 1 : </span>
+        <span class="font-weight-light">My Project</span>
       </v-toolbar-title>
       <v-spacer></v-spacer>
       <v-btn
         text
         href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
+        target="_blank">
       </v-btn>
     </v-app-bar>
 
