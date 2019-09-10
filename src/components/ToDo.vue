@@ -27,10 +27,10 @@
 
             <v-col cols="12" md="4">
               <ol>
-                  <li>
-                    {{todoList}}
-                  </li>
-                </ol>
+                <li v-for="(item, i) in todoList" :key="i">
+                  {{ item.title }} : {{item.content}}
+                </li>
+              </ol>
             </v-col>
 
           </v-row>
