@@ -29,6 +29,9 @@
               <ol>
                 <li v-for="(item, i) in todoList" :key="i">
                   {{ item.title }} : {{item.content}}
+                  <v-col cols="4">
+                  <v-btn v-on:click="delTodo(i)">Del</v-btn>
+                  </v-col>
                 </li>
               </ol>
             </v-col>
@@ -55,6 +58,9 @@ export default {
         content: this.content
       })
       console.log(JSON.stringify(this.todoList))
+    },
+    delTodo (i) {
+      this.todoList.splice(i, 1)
     }
   }
 }
